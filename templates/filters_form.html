@@ -1,0 +1,83 @@
+<form method="get" action="">
+  <div id="datepicker-container">
+    <div class="accordion fs-5" id="accordionExample">
+      <div class="accordion-item border-0">
+        <h2 class="accordion-header" id="headingOne">
+          <button
+            class="accordion-button bg-primary text-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            Filtros
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            {{ form.hidden_tag() }}
+            <div class="input-group mb-3 mt-2">
+              <span class="input-group-text" id="basic-addon1">
+                <i
+                  class="fa fa-calendar"
+                  style="font-size: 20px; color: black"
+                ></i>
+              </span>
+
+              <input
+                type="datetime-local"
+                class="form-control"
+                aria-label="Datetime"
+                aria-describedby="basic-addon1"
+                name="datetime"
+                id="datetime"
+                value="{{ form.datetime.data }}"
+                min="{{min_date}}"
+                max="{{max_date}}"
+              />
+
+              <!-- <button type="submit" class="btn btn-primary">Filtrar</button> -->
+            </div>
+
+            <div class="filters-table mb-2">
+              {% for column in data_columns %}
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="{{ column }}"
+                  id="{{ column }}"
+                  {%
+                  if
+                  column
+                  in
+                  request_args
+                  %}checked{%
+                  endif
+                  %}
+                />
+                <label class="form-check-label" for="{{ column }}">
+                  {{ column }}
+                </label>
+              </div>
+              <hr />
+              {% endfor %}
+            </div>
+
+            <div class="text-end mt-3">
+              <button type="submit" class="btn btn-primary bg-primary">
+                Aplicar filtros
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

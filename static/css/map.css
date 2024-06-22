@@ -1,14 +1,3 @@
-body {
-  padding: 0;
-  margin: 0;
-}
-html,
-body,
-#map {
-  height: 100%;
-  width: 100vw;
-}
-
 #datepicker-container {
   position: absolute;
   top: 10px;
@@ -17,7 +6,15 @@ body,
   background-color: #f2f2f2;
   /* padding: 20px; */
   border-radius: 5px;
-  width: 500px;
+  /* border: 2px solid white; */
+  /* width: 500px; */
+  .accordion-collapse {
+    width: 500px
+  }
+
+  .accordion-button.collapsed {
+    font-size: 0
+  }
 }
 
 .dtpick {
@@ -25,10 +22,6 @@ body,
   padding: 5px;
   margin: 5px;
   
-}
-
-hr {
-  margin: 7px 0;
 }
 
 .filters-handle {
@@ -48,4 +41,27 @@ hr {
       margin-right: 5px;
     }
   }
+}
+
+.filters-table {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  hr:last-child {
+    display: none;
+  }
+}
+
+.accordion-body {
+  background-color: #f8f8f8;
+}
+
+.accordion-button::after {
+  /* svg in /assets/images/chevron-down.svg */
+  background-image: url("/static/images/chevron-down.svg");
+}
+.accordion-button:not(.collapsed)::after {
+  /* svg in /assets/images/chevron-down.svg */
+  background-image: url("/static/images/chevron-down.svg");
 }
