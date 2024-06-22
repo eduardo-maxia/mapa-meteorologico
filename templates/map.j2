@@ -23,7 +23,7 @@
 <script>
 {% for marker in markers_with_data %}
 L.marker([{{ marker['lat'] }}, {{ marker['lon'] }}]).addTo(map)
-.bindPopup(`<h4 class="fs-5">Medição: ${new Date("{{ marker['filtered_data']['datetime'] }}").toLocaleString('pt-BR')}<h4/>{{ marker['popup'] }}`);
+.bindPopup(`<h4 class="fs-5 fw-bold">Estação: {{ marker['nome'] }}</h4><h4 class="fs-5">Medição: ${new Date("{{ marker['filtered_data']['datetime'] }}").toLocaleString('pt-BR')}<h4/>{{ marker['popup'] }}`);
 {% endfor %}
 
 {% for marker in markers_without_data %}
