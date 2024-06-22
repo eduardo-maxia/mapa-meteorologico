@@ -3,6 +3,3 @@ leaflet==0.0.3
 pandas==2.2.2
 WTForms==3.1.2
 Flask-WTF==1.2.1
-bootstrap-flask==2.4.0
-Flask-Datepicker==0.14
-flask_assets==2.1.0
