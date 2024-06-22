@@ -2,6 +2,10 @@
 
 This is a basic Flask application that utilizes the following technologies: Flask, Docker, Leaflet, and Bootstrap.
 
+## Demo
+
+You can try out the demo application at [flaskmap.fly.dev](https://flaskmap.fly.dev).
+
 ## Installation
 
 1. Clone the repository:
