@@ -62,7 +62,7 @@ def home():
         marker['filtered_data'] = marker['data'].loc[marker['data']['datetime'] <= filtered_date]
         if marker['filtered_data'].empty:
             markers_without_data.append(marker)
-            marker['popup'] = 'Sem dados para esta data'
+            marker['popup'] = '<h4 class="fs-5">Sem dados para esta data</h4>'
             continue
         
         marker['filtered_data'] = marker['filtered_data'].iloc[-1]
