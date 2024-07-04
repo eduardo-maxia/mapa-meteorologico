@@ -1,0 +1,27 @@
+.marker-popup {
+
+}
+
+.maker-popup_text-localidade {
+    /* font-size: 1.1rem; */
+    margin: 0 !important;
+}
+
+.maker-popup_text-dados-principais {
+    /* font-size: 1.1rem; */
+    margin: 0 !important;
+}
+
+.maker-popup_text-metadados {
+    /* font-size: 1.1rem; */
+    margin: 0 !important;
+}
+
+li {
+    display: inline !important;
+}
+
+#myTab {
+    min-width: 282px;
+}
+  
