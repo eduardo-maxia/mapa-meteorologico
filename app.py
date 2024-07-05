@@ -17,7 +17,7 @@ for idx, localidade in data.iterrows():
 
 @app.route('/', methods=['get'])
 def home():
-    return render_template('map.html', data=data)
+    return render_template('map-ol.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)
