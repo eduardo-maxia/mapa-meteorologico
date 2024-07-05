@@ -5,16 +5,9 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/marker_popup.css') }}"
     />
-
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/searchbar.css') }}"
-    />
 {% endblock %}
 
 {% block content %}
-
-{% include 'searchbar.html' %}
 
 <div id="map"></div>
 <script src="{{ url_for('static', filename='js/map.js') }}" /></script>
@@ -33,33 +26,29 @@ L.marker([{{ localidade['lat(y)'] }}, {{ localidade['long(x)'] }}], {
 	})
 }).addTo(map)
 .bindPopup(`
-<ul class="nav nav-tabs mb-2 fs-5" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Localidade</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Dados</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Metadados</button>
-  </li>
-</ul>
-<div class="tab-content fs-5 border-1" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <!-- Dados Localidade -->
-        <p class="maker-popup_text-localidade">Município: {{localidade["nm_mun"]}}</p>
-        <p class="maker-popup_text-localidade">Distrito: {{localidade["nm_dist"]}}</p>
-        <p class="maker-popup_text-localidade">Localidade: {{localidade["nm_localidade"]}}</p>
-    </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <!-- Dados principais -->
-        <p class="maker-popup_text-dados-principais">Sistema de Abastecimento: {{localidade["cagece_sistema_de_abastecimento"]}}</p>    
-    </div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <p class="maker-popup_text-metadados">Código Município: <span class="text-primary">{{localidade["cd_mun"]}}</span></p>
-        <p class="maker-popup_text-metadados">Código Distrito: <span class="text-primary">{{localidade["cd_dist"]}}</span></p>
-        <p class="maker-popup_text-metadados">Código Localidade: <span class="text-primary">{{localidade["cd_localidade"]}}</span></p>    
-    </div>
+
+<!-- Versão tudo de uma vez -->
+<div class="marker-popup">
+  <!-- Dados Localidade -->
+  <p class="maker-popup_text-localidade">Município: {{localidade["nm_mun"]}}</p>
+  <p class="maker-popup_text-localidade">Distrito: {{localidade["nm_dist"]}}</p>
+  <p class="maker-popup_text-localidade">Localidade: {{localidade["nm_localidade"]}}</p>
+
+  <hr />
+
+  <p class="maker-popup_text-dados-principais">Sistema de Abastecimento: {{localidade["cagece_sistema_de_abastecimento"]}}</p>    
+
+  <div class="w-100 d-flex align-items-end justify-content-end mt-1">
+    <a class="text-primary text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Mostrar metadados</a>
+  </div>
+
+  <div class="collapse" id="collapseExample">
+    <hr class="my-2" />
+
+    <p class="maker-popup_text-metadados text-dark">Código Município: <span class="text-primary">{{localidade["cd_mun"]}}</span></p>
+    <p class="maker-popup_text-metadados text-dark">Código Distrito: <span class="text-primary">{{localidade["cd_dist"]}}</span></p>
+    <p class="maker-popup_text-metadados text-dark">Código Localidade: <span class="text-primary">{{localidade["cd_localidade"]}}</span></p> 
+  </div>
 </div>
 `);
 {% endfor %}
